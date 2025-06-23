@@ -35,3 +35,17 @@ docker compose up component-build-whl
 ```
 
 fails with the same error
+
+venv:
+```
+$ docker compose run --rm component-build-whl ls -l /venv/lib/python3.13/site-packages/pydantic_core/
+
+total 8508
+-rw-r--r-- 1 root root    4403 Jun 23 13:45 __init__.py
+drwxr-xr-x 1 root root    4096 Jun 23 12:49 __pycache__
+-rwxr-xr-x 1 root root 3720933 Jun 23 13:45 _pydantic_core.cpython-313-wasm32-wasi.so
+-rwxr-xr-x 1 root root 4772792 Jun 23 12:49 _pydantic_core.cpython-313-x86_64-linux-gnu.so
+-rw-r--r-- 1 root root   43359 Jun 23 13:45 _pydantic_core.pyi
+-rw-r--r-- 1 root root  149655 Jun 23 13:45 core_schema.py
+-rw-r--r-- 1 root root       0 Jun 23 13:45 py.typed
+```

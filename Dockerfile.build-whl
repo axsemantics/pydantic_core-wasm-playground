@@ -29,6 +29,9 @@ COPY ./component /component
 # build pydantic whl
 RUN bash /component/build_pydantic.sh
 
+# copy to venv location
+RUN cp -R /wasi_deps/pydantic_core /venv/lib/python3.13/site-packages/
+
 WORKDIR /component
 
 # build wasm
