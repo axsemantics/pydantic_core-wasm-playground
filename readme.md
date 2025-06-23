@@ -2,6 +2,8 @@
 
 ### using whl
 
+[![use Wheel](https://github.com/axsemantics/pydantic_core-wasm-playground/actions/workflows/use-whl.yml/badge.svg)](https://github.com/axsemantics/pydantic_core-wasm-playground/actions/workflows/use-whl.yml)
+
 ```
 docker compose build component-use-whl
 docker compose up component-use-whl
@@ -28,6 +30,8 @@ drwxr-xr-x 1 root root    4096 Jun 23 12:40 __pycache__
 
 
 ### build whl
+
+[![build Wheel](https://github.com/axsemantics/pydantic_core-wasm-playground/actions/workflows/build-whl.yml/badge.svg)](https://github.com/axsemantics/pydantic_core-wasm-playground/actions/workflows/build-whl.yml)
 
 ```
 docker compose build component-build-whl
