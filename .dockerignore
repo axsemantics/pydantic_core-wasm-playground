@@ -1,0 +1,5 @@
+.venv
+component/one-rule
+component/output
+component/wasi_deps
+component/wasi-wheels

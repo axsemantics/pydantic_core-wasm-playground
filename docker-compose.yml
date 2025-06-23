@@ -1,0 +1,22 @@
+---
+services:
+  component-use-whl:
+    build:
+      context: .
+      dockerfile: Dockerfile.use-whl
+    entrypoint: []
+    environment:
+      PYTHONUNBUFFERED: 0
+    volumes:
+      - ./app:/app
+      - ./component:/component
+  component-build-whl:
+    build:
+      context: .
+      dockerfile: Dockerfile.build-whl
+    entrypoint: []
+    environment:
+      PYTHONUNBUFFERED: 0
+    volumes:
+      - ./app:/app
+      - ./component:/component
