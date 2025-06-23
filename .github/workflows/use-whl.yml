@@ -14,4 +14,4 @@ jobs:
       - name: build container
         run: docker compose build component-use-whl
       - name: build wasm
-        run: docker compose up component-use-whl
+        run: docker compose up component-use-whl --exit-code-from component-use-whl
