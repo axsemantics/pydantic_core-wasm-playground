@@ -1,0 +1,17 @@
+---
+name: use Wheel
+# yamllint disable rule:truthy
+on: [push, workflow_dispatch]
+# yamllint enable
+
+jobs:
+  use-whl:
+    runs-on: ubuntu-latest
+    env:
+      COMPOSE_FILE: docker-compose.yml
+    steps:
+      - uses: actions/checkout@v4
+      - name: build container
+        run: docker compose build component-use-whl
+      - name: build wasm
+        run: docker compose up component-use-whl
