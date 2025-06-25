@@ -1,8 +1,11 @@
-from pydantic import BaseModel
+import wit_world
 
-class Protocol(BaseModel):
-    text: str
+# from pydantic import BaseModel
+
+# class Protocol(BaseModel):
+#     text: str
 
 
-def run(text: str):
-    return Protocol(text=text).model_dump_json()
+class WitWorld(wit_world.WitWorld):
+    def hello(text: str = "meh"):
+        return Protocol(text=text).model_dump_json()

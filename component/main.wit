@@ -1,16 +1,5 @@
-package ax:quantum;
+package ax:hello;
 
-interface incoming-sync {
-	incoming-request: func(path: string, payload: string) -> result<string, string>;
-}
-interface outgoing-sync {
-	outgoing-request: func(path: string, payload: string) -> result<string, string>;
-}
-world string-actor-sync {
-	import outgoing-sync;
-	export incoming-sync;
-
-	export init: interface {
-		init: func();
-	}
+world hello {
+  export hello: func() -> string;
 }
