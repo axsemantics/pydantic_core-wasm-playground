@@ -1,9 +1,10 @@
 import wit_world
 
-# from pydantic import BaseModel
+from pydantic import BaseModel
 
-# class Protocol(BaseModel):
-#     text: str
+
+class Protocol(BaseModel):
+    text: str
 
 
 class WitWorld(wit_world.WitWorld):
