@@ -14,16 +14,16 @@ RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
 		--no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN python -m venv /venv
+# RUN python -m venv /venv
 # normall we do some uv here; but for simplicity lets not
-ENV PATH="/venv/bin:$PATH"
-RUN /venv/bin/python -m pip install pydantic
+# ENV PATH="/venv/bin:$PATH"
+# RUN /venv/bin/python -m pip install pydantic
 
 # install pydantic wasi to folder
-RUN pip install --target /wasi_deps --platform any --platform wasi_0_0_0_wasm32 --python-version "3.13" --only-binary :all: --index-url https://benbrandt.github.io/wasi-wheels/ --extra-index-url https://pypi.org/simple --upgrade pydantic_core
+RUN pip install --target /wasi_deps --platform any --platform wasi_0_0_0_wasm32 --python-version "3.13" --only-binary :all: --index-url https://benbrandt.github.io/wasi-wheels/ --extra-index-url https://pypi.org/simple --upgrade pydantic_core pydantic
 
 # copy to venv location
-RUN cp -R /wasi_deps/pydantic_core /venv/lib/python3.13/site-packages/
+# RUN cp -R /wasi_deps/pydantic_core /venv/lib/python3.13/site-packages/
 
 RUN pip install componentize-py
 COPY ./app /app
