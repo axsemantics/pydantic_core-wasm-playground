@@ -1,5 +1,5 @@
 #syntax=docker/dockerfile:1
-FROM public.ecr.aws/docker/library/python:3.13-slim-bookworm
+FROM public.ecr.aws/docker/library/python:3.12-slim-bookworm
 
 RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
 	&& apt update \
@@ -20,7 +20,7 @@ ENV PATH="/venv/bin:$PATH"
 RUN /venv/bin/python -m pip install pydantic==2.11.7
 
 # install pydantic wasi to folder
-RUN pip install --target /wasi_deps --platform any --platform wasi_0_0_0_wasm32 --python-version "3.13" --only-binary :all: --index-url https://benbrandt.github.io/wasi-wheels/ --extra-index-url https://pypi.org/simple --upgrade pydantic_core pydantic
+RUN pip install --target /wasi_deps --platform any --platform wasi_0_0_0_wasm32 --python-version "3.12" --only-binary :all: --index-url https://benbrandt.github.io/wasi-wheels/ --extra-index-url https://pypi.org/simple --upgrade pydantic_core pydantic
 
 RUN pip install componentize-py
 COPY ./app /app

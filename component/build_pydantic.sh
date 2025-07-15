@@ -11,11 +11,11 @@ export OPENSSL_INCLUDE_DIR=/usr/include/openssl
 export OPENSSL_LIB_DIR=/usr/lib/x86_64-linux-gnu/
 rustup target add wasm32-wasip1
 cargo run -- install-build-tools
-cargo run -- build pydantic-core 2.33.2 --python-versions py3-13
+cargo run -- build pydantic-core 2.33.2 --python-versions py3-12
 # cargo run -- generate-index benbrandt/wasi-wheels
 
 # wheel place:
-# ./packages/pydantic_core-2.33.2/dist/pydantic_core-2.33.2-cp313-cp313-wasi_0_0_0_wasm32.whl
+# ./packages/pydantic_core-2.33.2/dist/pydantic_core-2.33.2-cp312-cp312-wasi_0_0_0_wasm32.whl
 
 # install wheel
-pip install --target /wasi_deps --platform any --platform wasi_0_0_0_wasm32 --python-version "3.13" --only-binary :all: `find . -name \*cp313-cp313-wasi_0_0_0_wasm32.whl`
+pip install --target /wasi_deps --platform any --platform wasi_0_0_0_wasm32 --python-version "3.12" --only-binary :all: `find . -name \*cp312-cp312-wasi_0_0_0_wasm32.whl`
