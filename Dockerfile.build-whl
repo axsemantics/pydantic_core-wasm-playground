@@ -14,10 +14,10 @@ RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7 \
 		--no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
 
-# RUN python -m venv /venv
+RUN python -m venv /venv
 # normall we do some uv here; but for simplicity lets not
-# ENV PATH="/venv/bin:$PATH"
-# RUN /venv/bin/python -m pip install pydantic
+ENV PATH="/venv/bin:$PATH"
+RUN /venv/bin/python -m pip install pydantic==2.11.7
 
 # install rust
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
@@ -28,9 +28,6 @@ COPY ./component /component
 
 # build pydantic whl
 RUN bash /component/build_pydantic.sh
-
-# copy to venv location
-# RUN cp -R /wasi_deps/pydantic_core /venv/lib/python3.13/site-packages/
 
 WORKDIR /component
 

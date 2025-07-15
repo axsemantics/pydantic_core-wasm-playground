@@ -19,4 +19,3 @@ cargo run -- build pydantic-core 2.33.2 --python-versions py3-13
 
 # install wheel
 pip install --target /wasi_deps --platform any --platform wasi_0_0_0_wasm32 --python-version "3.13" --only-binary :all: `find . -name \*cp313-cp313-wasi_0_0_0_wasm32.whl`
-pip install --target /wasi_deps --platform any --platform wasi_0_0_0_wasm32 --python-version "3.13" --only-binary :all: pydantic
